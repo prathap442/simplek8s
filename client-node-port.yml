@@ -10,3 +10,9 @@ spec:
       nodePort: 31515
   selector:
     component: web
+    # So this selector for this particular node contianer should run under the pod named client-pod
+    # and this can be mapped by using the selector: having component: web with the match in the
+    # client-pod.yaml with the 
+    # metadata:
+    #  labels:
+    #    component: web

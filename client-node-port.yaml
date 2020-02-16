@@ -1,16 +1,22 @@
 apiVersion: v1
-kind: service
+kind: Service
 metadata:
   name: client-node-port
 spec:
   type: NodePort
   ports:
-    - ports: 3050
+    - port: 3050
       targetPort: 3000
       nodePort: 31515
   selector:
     component: web
-    # So this selector for this particular node contianer should run under the pod named client-pod
+
+
+
+
+
+
+        # So this selector for this particular node contianer should run under the pod named client-pod
     # and this can be mapped by using the selector: having component: web with the match in the
     # client-pod.yaml with the 
     # metadata:

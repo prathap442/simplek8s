@@ -90,4 +90,4 @@ and now if you can see that the node-port
 
 ------------------------------------------------------------------------------------------
 
-
+# Now let us feed a config file to the kubectl and this can be done by using

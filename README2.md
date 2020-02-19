@@ -101,6 +101,14 @@ Imperative Deployments are the ones that make the kubernetes controlling to be g
 Declarative Deployments:
   - Most of the Deployments are declarative and they are trying to get deployed by using the yaml scripts and the complete control being given to the kubernetes on production .
 
-![](images/shot11.png)
+<<<<<<< HEAD
+![shot11](images/shot11.png)
 
 ----------------------------------------------------------------------------------------------------
+
+![shot12](https://github.com/prathap442/simplek8s/blob/master/images/shot12.png)
+=======
+![](./images/shot11.png)
+
+----------------------------------------------------------------------------------------------------
+>>>>>>> cf26afe... just made some change

@@ -91,3 +91,16 @@ and now if you can see that the node-port
 ------------------------------------------------------------------------------------------
 
 # Now let us feed a config file to the kubectl and this can be done by using
+
+
+
+What are the imperative and Declarative Deployments in the Kubernetes.
+
+Imperative Deployments are the ones that make the kubernetes controlling to be given to the manual controlling
+
+Declarative Deployments:
+  - Most of the Deployments are declarative and they are trying to get deployed by using the yaml scripts and the complete control being given to the kubernetes on production .
+
+![](images/shot11.png)
+
+----------------------------------------------------------------------------------------------------

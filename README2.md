@@ -359,3 +359,39 @@ A Deployment monitors the state of each pod,updating when necessary
 Good For Development
 Good For Production
 ```
+
+
+
+bash@git/simplek8s$ kubectl get pods
+NAME         READY   STATUS    RESTARTS   AGE
+client-pod   1/1     Running   6          16h
+```
+
+# Deleting the pod
+
+Now i wanted to delete the pod then for the sake of removing we have got different syntax
+```
+kubectl delete -f <file-for-the-pod-creation>
+```
+so the same file that is used for the sake of the pod configuration should be used when the pod needs to be removed
+```
+  kubectl delete -f client-pod.yaml`
+  pod "client-pod" deleted
+```
+
+kubectl get pods now gives me with 
+```
+$ kubectl get pods
+
+No resources found in default namespace.
+```
+
+# Creating the Pods using the Deployment object
+
+
+* This is possible by using the command
+
+```
+kubectl apply -f client-deployment.yaml 
+```
+deployments/client-deployment got created

@@ -395,3 +395,32 @@ No resources found in default namespace.
 kubectl apply -f client-deployment.yaml 
 ```
 deployments/client-deployment got created
+
+
+
+Experiments on the local Machine
+
+```
+kubectl apply -f ./client-deployment.yaml 
+deployment.apps/client-deployment created
+prathap@prathap-HP-EliteBook-840-G1:~/Documents/stephen-grider-learnings/simplek8s$ kubectl get pods
+NAME                                 READY   STATUS              RESTARTS   AGE
+client-deployment-588947887b-7jccw   0/1     ContainerCreating   0          1s
+
+prathap@prathap-HP-EliteBook-840-G1:~/Documents/stephen-grider-learnings/simplek8s$ kubectl apply -f ./client-deployment.yaml 
+deployment.apps/client-deployment configured
+
+prathap@prathap-HP-EliteBook-840-G1:~/Documents/stephen-grider-learnings/simplek8s$ kubectl get pods
+NAME                                 READY   STATUS              RESTARTS   AGE
+client-deployment-588947887b-7jccw   1/1     Running             0          31s
+client-deployment-78cdc5df45-96hkc   0/1     ContainerCreating   0          3s
+
+prathap@prathap-HP-EliteBook-840-G1:~/Documents/stephen-grider-learnings/simplek8s$ kubectl get pods
+NAME                                 READY   STATUS    RESTARTS   AGE
+client-deployment-78cdc5df45-96hkc   1/1     Running   0          44s
+
+```
+
+
+    So the client-deployment.yaml when i have changed the containers port from 3000 to 3001 so the template is changed and then the new pod got created and then old pod got deleted .
+

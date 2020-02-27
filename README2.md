@@ -424,3 +424,49 @@ client-deployment-78cdc5df45-96hkc   1/1     Running   0          44s
 
     So the client-deployment.yaml when i have changed the containers port from 3000 to 3001 so the template is changed and then the new pod got created and then old pod got deleted .
 
+
+
+
+
+
+# Template has got the prominent importance in the client-deployment.yaml
+
+```
+# In this file for keys camel case is being used
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: web
+  template:
+    metadata:
+      labels:
+        component: web
+    spec:
+      containers:
+        - name: client
+          image: stephengrider/multi-client
+          ports:
+            - containerPort: 3001
+```
+
+
+* Here template has got the metadata involved in int that is the metadata component: web having the labels 
+
+* Here the selector exists actually the selector exists to have the control on the pods .
+
+* For having the handle on the pods then the pods should need to be identitified by some property with the properties of the matchlabels of the 
+```
+  component: web
+```
+$ kubectl get deployments
+
+```
+NAME                DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+client-deployment   1         1         1            1           1d
+
+```

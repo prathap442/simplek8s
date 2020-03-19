@@ -1,8 +1,8 @@
 # In this file for keys camel case is being used
 apiVersion: apps/v1
-kind: Deployment
+kind: Deployment # this is the object type
 metadata:
-  name: client-deployment
+  name: client-deployment #thisis the object name
 spec:
   replicas: 1
   selector:

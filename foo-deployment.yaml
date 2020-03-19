@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-Deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: web # this is giving the handle of the control to the master(Handle Being Given)
+  template:
+    metadata:
+      labels:
+        component: web # this is the template pod label so a pod with the label of the component: web is being created 
+        # this is giving the chance to pick up the pods with the label component: web and updated the 
+        # configuration in future if required
+        # Handle being utilised .
+    spec:
+      containers:
+
+
+ # kub       

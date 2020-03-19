@@ -101,7 +101,8 @@ Imperative Deployments are the ones that make the kubernetes controlling to be g
 Declarative Deployments:
   - Most of the Deployments are declarative and they are trying to get deployed by using the yaml scripts and the complete control being given to the kubernetes on production .
 
-![shot11](images/shot11.png)
+![alt text](https://github.com/prathap442/parking_lot_pracs/blob/master/shot11.png)
+
 
 ----------------------------------------------------------------------------------------------------
 
@@ -468,5 +469,56 @@ $ kubectl get deployments
 ```
 NAME                DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 client-deployment   1         1         1            1           1d
+```
+
+
+
+
+# Scenario of updating the pods with the images that are latest can be done
 
 ```
+  $ kubectl set image <objecttype>/<nameoftheobject(this exists in the metadatasection)> <container-name>=<dockerusername/image:tag>  
+```
+```
+  kubectl set image deployment/client-deployment client = stephengrider/multi-client:v5
+```
+
+
+There can be 3 kinds of the solutions to this kind of the probleme those are 
+
+Solution1. To delete the pods so that kubernetes refetches those images and builds the pods again
+
+Solution2. To update the Configuration file as shown by tagging the image with a specific version 
+```
+# In this file for keys camel case is being used
+apiVersion: apps/v1
+kind: Deployment # this is the object type
+metadata:
+  name: client-deployment #thisis the object name
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: web
+  template:
+    metadata:
+      labels:
+        component: web
+    spec:
+      containers:
+        - name: client
+          >>>>>>>>>>>>>change observer>>>>>>>>>>>>>>>
+          image: stephengrider/multi-client:v2
+          >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+          ports:
+            - containerPort: 3000
+```
+
+
+
+
+Solution3: The imperative approach where the imperative command is being used 
+
+
+
+
